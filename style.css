@@ -1,0 +1,87 @@
+
+
+html, body {
+    scroll-behavior: smooth;
+    height: 200%;
+  }
+  
+  .camera {
+    width: 251px;
+    position: sticky;
+    perspective: 200px;
+    top: 0;
+  }
+  
+  /*
+   Animated Logo
+  */
+  
+  @keyframes spinGear {
+    from {
+      transform: rotate(0) translate3d(0,0,-100px);
+    }
+    to {
+      transform: rotate(180deg) translate3d(0,0,0);
+    }
+  }
+  
+  
+  .gear {
+    width: 251px;
+    animation: 2.5s ease-in-out forwards spinGear;
+    animation-timeline: scroll();
+  }
+  
+  
+  @keyframes spinArc {
+    from {
+      transform-origin: center 251px;
+      transform: rotate(0);
+    }
+    to {
+      transform-origin: center 251px;
+      transform: rotate(360deg);
+    }
+  }
+  
+  .gear svg path[data-svg-origin] {
+    animation: 2.5s ease-in-out forwards spinArc;
+    animation-timeline: scroll();
+  }
+  
+  
+  /*
+   Animated Stroke
+  */
+  
+  @keyframes strokeZoom {
+    from {
+      transform: translate3d(-37px, -54px, -100px);
+    }
+    to {
+      transform: translate3d(-37px,-54px,0);
+    }
+  }
+  
+  @keyframes drawStroke {
+    from {
+      stroke-dashoffset: 1444px;
+    }
+    to {
+      stroke-dashoffset: -1444px;
+    }
+  }
+  
+  .stroke {
+    position:relative;
+    top: -200px;
+    z-index: 10;
+    animation: 2.5s ease-in-out forwards strokeZoom;
+    animation-timeline: scroll();
+  }
+  
+  .stroke path {
+    animation: 2.5s ease-in-out forwards drawStroke;
+    animation-timeline: scroll();
+    stroke-dasharray: 1444;
+  }
